@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>印刷企业可持续发展能力诊断问卷</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+            color: #333;
+            text-align: center;
+
+        }
+
+        h1 {
+            color: #2c3e50;
+            font-size: 32px;
+            margin-top: 30px;
+        }
+
+        .container {
+            width: 60%;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 30px;
+        }
+
+        .question {
+            margin-bottom: 25px;
+            text-align: left;
+            padding-left: 15px
+        }
+
+        h3 {
+            font-size: 20px;
+            color: #34495e;
+            margin-bottom: 10px;
+            background-color: #ecf0f1;
+            padding: 10px;
+            border-radius: 6px;
+            font-weight: normal;
+        }
+
+        label {
+            font-weight: bold;
+            font-size: 16px;
+            color: #34495e;
+        }
+
+        .answers {
+            margin-left: 20px;
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 10px;
+            box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .answers input[type="radio"] {
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
+        .answers label {
+            font-size: 14px;
+            display: block;
+            margin-bottom: 5px;
+            padding: 6px;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        .answers label:hover {
+            background-color: #dcdde1;
+        }
+
+
+        .submit-btn {
+            display: block;
+            width: 100%;
+            padding: 12px 0;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 18px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background-color: #45a049;
+        }
+
+        .results {
+            margin-top: 30px;
+            font-size: 18px;
+            font-weight: bold;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: none;
+            margin-bottom: 30px;
+        }
+
+        .result-text {
+            margin-bottom: 10px;
+            color: #2980b9;
+        }
+
+        .result-text span {
+            color: #34495e;
+            font-weight: bold;
+        }
+
+
+        #radarChartContainer {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        #radarChart {
+            margin: 0 auto;
+            display: block;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+
+    <h1>印刷企业可持续发展能力诊断问卷</h1>
+
+    <form id="surveyForm">
+
+        <!--经济维度 -->
+        <div class="question">
+            <h3>1. 技术可持续创新能力</h3>
+            <label for="q1">贵公司年度研发费用占营业收入的比例是多少？</label>
+            <div class="answers">
+                <input type="radio" name="q1" value="A"> A. ≥8%<br>
+                <input type="radio" name="q1" value="B"> B. 5%-7.9%<br>
+                <input type="radio" name="q1" value="C"> C. 2%-4.9%<br>
+                <input type="radio" name="q1" value="D"> D. <2%<br>
+            </div>
+        </div>
+
+        <div class="question">
+            <label for="q2">贵公司在过去一年中获得的新工艺、新产品或专利数量是多少？</label>
+            <div class="answers">
+                <input type="radio" name="q2" value="A"> A. ≥5项<br>
+                <input type="radio" name="q2" value="B"> B. 3-4项<br>
+                <input type="radio" name="q2" value="C"> C. 1-2项<br>
+                <input type="radio" name="q2" value="D"> D. <1项<br>
+            </div>
+        </div>
+
+
+        <div class="question">
+            <label for="q3">贵公司是否设立了独立的研发部门，制定了技术发展战略，并建立了激励机制？</label>
+            <div class="answers">
+                <input type="radio" name="q3" value="A"> A. 全部具备<br>
+                <input type="radio" name="q3" value="B"> B. 具备两项<br>
+                <input type="radio" name="q3" value="C"> C. 仅具备一项<br>
+                <input type="radio" name="q3" value="D"> D. 三项均无<br>
+            </div>
+        </div>
+
+        <div class="question">
+            <label for="q4">贵公司核心设备的平均使用年限是多少？</label>
+            <div class="answers">
+                <input type="radio" name="q4" value="A"> A. ≤3年<br>
+                <input type="radio" name="q4" value="B"> B. 4-5年<br>
+                <input type="radio" name="q4" value="C"> C. 6-7年<br>
+                <input type="radio" name="q4" value="D"> D. ≥8年<br>
+            </div>
+        </div>
+
+        <div class="question">
+            <h3>2. 财务稳健性与成本效率</h3>
+            <label for="q5">贵公司营业收入利润率是多少？</label>
+            <div class="answers">
+                <input type="radio" name="q5" value="A"> A. >14.6%<br>
+                <input type="radio" name="q5" value="B"> B. 9.2%-14.6%<br>
+                <input type="radio" name="q5" value="C"> C. 3.8%-9.2%<br>
+                <input type="radio" name="q5" value="D"> D. <3.8%<br>
+            </div>
+        </div>
+        <div class="question">
+            <label for="q6">贵公司生产过程中，废品占总产量的比例是多少？</label>
+            <div class="answers">
+                <input type="radio" name="q6" value="A"> A. ≤3%<br>
+                <input type="radio" name="q6" value="B"> B. 3%-6%<br>
+                <input type="radio" name="q6" value="C"> C. 6%-10%<br>
+                <input type="radio" name="q6" value="D"> D. >10%<br>
+            </div>
+        </div>
+
+        <div class="question">
+            <label for="q7">贵公司每年在环保改造、设备升级和员工培训等方面的投入占年度营业收入的比例是多少？</label>
+            <div class="answers">
+                <input type="radio" name="q7" value="A"> A. ≥3%<br>
+                <input type="radio" name="q7" value="B"> B. 1%-2.9%<br>
+                <input type="radio" name="q7" value="C"> C. 0.5%-0.99%<br>
+                <input type="radio" name="q7" value="D"> D. <0.5%<br>
+            </div>
+        </div>
+
+        <div class="question">
+            <label for="q8">贵公司资产负债率是多少？</label>
+            <div class="answers">
+                <input type="radio" name="q8" value="A"> A. <53%<br>
+                    <input type="radio" name="q8" value="B"> B. 53%-58%<br>
+                    <input type="radio" name="q8" value="C"> C. 58%-66.5%<br>
+                    <input type="radio" name="q8" value="D"> D. >66.5%<br>
+            </div>
+        </div>
+
+        <!-- 经济维度 - 市场竞争力与业务模式转型 -->
+        <div class="question">
+            <h3>3. 市场竞争力与业务模式转型</h3>
+            <label for="q9">贵公司新业务收入占总营业收入的比例是多少？</label>
+            <div class="answers">
+                <input type="radio" name="q9" value="A"> A. ≥30%<br>
+                <input type="radio" name="q9" value="B"> B. 15%-29.9%<br>
+                <input type="radio" name="q9" value="C"> C. 5%-14.9%<br>
+                <input type="radio" name="q9" value="D"> D. <5%<br>
+            </div>
+        </div>
+
+        <div class="question">
+            <label for="q10">贵公司在所处区域或细分市场的业务占有率是多少？</label>
+            <div class="answers">
+                <input type="radio" name="q10" value="A"> A. 排名前3<br>
+                <input type="radio" name="q10" value="B"> B. 排名前10<br>
+                <input type="radio" name="q10" value="C"> C. 排名中后位<br>
+                <input type="radio" name="q10" value="D"> D. 占有率极低<br>
+            </div>
+        </div>
+
+        <div class="question">
+            <label for="q11">贵公司是否具备绿色印刷认证、ISO9001、ISO14001等相关认证？</label>
+            <div class="answers">
+                <input type="radio" name="q11" value="A"> A. 具备多个认证<br>
+                <input type="radio" name="q11" value="B"> B. 具备1-2项认证<br>
+                <input type="radio" name="q11" value="C"> C. 仅具备基础运营资质<br>
+                <input type="radio" name="q11" value="D"> D. 无认证<br>
+            </div>
+        </div>
+
+        <div class="question">
+            <label for="q12">综合来看，贵公司的顾客保留率和忠诚度如何?</label>
+            <div class="answers">
+                <input type="radio" name="q12" value="A"> A. 优秀（顾客满意度高，流失率低，重复购买率高，推荐率高，整体保留率≥98%）<br>
+                <input type="radio" name="q12" value="B"> B. 良好（顾客满意度较高，流失率适中，重复购买率较高，推荐率较好，整体保留率≥95%）<br>
+                <input type="radio" name="q12" value="C"> C.一般（顾客满意度中等，流失率较高，重复购买率一般，推荐率较低，整体保留率≥90%）<br>
+                <input type="radio" name="q12" value="D"> D. 较差（顾客满意度低，流失率高，重复购买率低，推荐率差，整体保留率＜85%）<br>
+            </div>
+        </div>
+
+        <!-- 经济维度 - 质量管理与客户价值 -->
+        <div class="question">
+            <h3>4. 质量管理与客户价值</h3>
+            <label for="q13">贵公司每年因质量问题报废的产品占生产总量的比例是多少？</label>
+            <div class="answers">
+                <input type="radio" name="q13" value="A"> A. <0.75%<br>
+                    <input type="radio" name="q13" value="B"> B. 0.75%-1.5%<br>
+                    <input type="radio" name="q13" value="C"> C. 1.5%-3.0%<br>
+                    <input type="radio" name="q13" value="D"> D. ≥3.0%<br>
+            </div>
+        </div>
+
+        <div class="question">
+            <label for="q14">贵公司订单是否能准时交付？</label>
+            <div class="answers">
+                <input type="radio" name="q14" value="A"> A. 几乎所有订单准时交付<br>
+                <input type="radio" name="q14" value="B"> B. 大多数订单准时交付<br>
+                <input type="radio" name="q14" value="C"> C. 延迟交付较常见<br>
+                <input type="radio" name="q14" value="D"> D. 经常延迟交货<br>
+            </div>
+        </div>
+
+        <div class="question">
+            <label for="q15">贵公司是否有完整的质量管理体系（如ISO9001认证）？</label>
+            <div class="answers">
+                <input type="radio" name="q15" value="A"> A. 完整并运作良好<br>
+                <input type="radio" name="q15" value="B"> B. 认证存在但运作不完善<br>
+                <input type="radio" name="q15" value="C"> C. 质量管理不规范<br>
+                <input type="radio" name="q15" value="D"> D. 无质量管理体系<br>
+            </div>
+        </div>
+
+        <div class="question">
+            <label for="q16">贵公司在过去一年中因产品质量问题产生的外部损失成本占年度总产值的比例大致是多少？</label>
+            <div class="answers">
+                <input type="radio" name="q16" value="A"> A. 优秀（外部质量损失率 < 0.5%）<br>
+                    <input type="radio" name="q16" value="B"> B. 良好（外部质量损失率 0.5% - 1.0%）<br>
+                    <input type="radio" name="q16" value="C"> C. 一般（外部质量损失率 1.0% - 2.3%）<br>
+                    <input type="radio" name="q16" value="D"> D. 较差（外部质量损失率 ≥ 2.3%）<br>
+            </div>
+        </div>
+
+        <!-- 二、社会维度 -->
+        <div class="question">
+            <h3>1. 员工稳定性与人员流动</h3>
+            <label for="q17">贵公司年度员工流失率是多少？</label>
+            <div class="answers">
+                <input type="radio" name="q17" value="A"> A. ≤10%<br>
+                <input type="radio" name="q17" value="B"> B. 10%-15%<br>
+                <input type="radio" name="q17" value="C"> C. 15%-20%<br>
+                <input type="radio" name="q17" value="D"> D. >20%<br>
+            </div>
+        </div>
+        <div class="question">
+            <label for="q18">贵公司是否具有针对关键岗位建立人才梯队与继任者制度?</label>
+            <div class="answers">
+                <input type="radio" name="q18" value="A"> A. 完整机制<br>
+                <input type="radio" name="q18" value="B"> B. 部分机制<br>
+                <input type="radio" name="q18" value="C"> C. 仅有应急方案<br>
+                <input type="radio" name="q18" value="D"> D. 无机制<br>
+            </div>
+        </div>
+
+        <div class="question">
+            <label for="q19">贵公司员工的平均任职年限是多少？</label>
+            <div class="answers">
+                <input type="radio" name="q19" value="A"> A. >10年<br>
+                <input type="radio" name="q19" value="B"> B. 5-10年<br>
+                <input type="radio" name="q19" value="C"> C. 3-4.9年<br>
+                <input type="radio" name="q19" value="D"> D. <3年<br>
+            </div>
+        </div>
+
+        <div class="question">
+            <label for="q20">贵公司是否有快速填补关键岗位空缺的能力？</label>
+            <div class="answers">
+                <input type="radio" name="q20" value="A"> A. ≤15天<br>
+                <input type="radio" name="q20" value="B"> B. 16-30天<br>
+                <input type="radio" name="q20" value="C"> C. 31-45天<br>
+                <input type="radio" name="q20" value="D"> D. >45天<br>
+            </div>
+        </div>
+
+        <!-- 社会维度 - 员工技能提升与培训发展 -->
+        <div class="question">
+            <h3>2. 员工技能提升与培训发展</h3>
+            <label for="q21">贵公司每年员工培训投入占总薪酬的比例是多少？</label>
+            <div class="answers">
+                <input type="radio" name="q21" value="A"> A. >5%<br>
+                <input type="radio" name="q21" value="B"> B. 3%-5%<br>
+                <input type="radio" name="q21" value="C"> C. 1%-2.9%<br>
+                <input type="radio" name="q21" value="D"> D. <1%<br>
+            </div>
+        </div>
+
+        <div class="question">
+            <label for="q22">贵公司员工每年接受的培训时长是多少？</label>
+            <div class="answers">
+                <input type="radio" name="q22" value="A"> A. ≥40小时<br>
+                <input type="radio" name="q22" value="B"> B. 20-39小时<br>
+                <input type="radio" name="q22" value="C"> C. 10-19小时<br>
+                <input type="radio" name="q22" value="D"> D. <10小时<br>
+            </div>
+        </div>
+
+        <div class="question">
+            <label for="q23">贵公司是否建立了岗位能力评估机制？</label>
+            <div class="answers">
+                <input type="radio" name="q23" value="A"> A. 完整机制<br>
+                <input type="radio" name="q23" value="B"> B. 部分评估<br>
+                <input type="radio" name="q23" value="C"> C. 定期评估<br>
+                <input type="radio" name="q23" value="D"> D. 无评估机制<br>
+            </div>
+        </div>
+
+        <div class="question">
+            <label for="q24">贵公司具备一岗多能（例如既能操作机器，又能进行维修/质检等）能力的员工占总员工数的比例大致是多少？</label>
+            <div class="answers">
+                <input type="radio" name="q24" value="A"> A. ≥70%<br>
+                <input type="radio" name="q24" value="B"> B. 50% - 69%<br>
+                <input type="radio" name="q24" value="C"> C. 30% - 49%<br>
+                <input type="radio" name="q24" value="D"> D.<30%<br>
+            </div>
+        </div>
+
+        <!-- 社会维度 - 工作环境与员工健康安全 -->
+        <div class="question">
+            <h3>3. 工作环境与员工健康安全</h3>
+            <label for="q25">贵公司在过去三年内发生过多少工伤事故？并且企业是否建立了事故调查、分析和整改机制？</label>
+            <div class="answers">
+                <input type="radio" name="q25" value="A"> A. 3年无重大事故，轻伤逐年下降，具备隐患排查与闭环管理机制<br>
+                <input type="radio" name="q25" value="B"> B. 偶有轻伤，整改及时，事故台账完善<br>
+                <input type="radio" name="q25" value="C"> C. 多起轻/中度工伤，缺乏持续改进机制<br>
+                <input type="radio" name="q25" value="D"> D. 事故频发，缺少预警与培训机制<br>
+            </div>
+        </div>
+
+        <div class="question">
+            <label for="q26">贵公司是否确保所有在岗员工都接受了年度安全培训，并且新入职员工在上岗前接受了培训？</label>
+            <div class="answers">
+                <input type="radio" name="q26" value="A"> A. 100%员工接受培训，包含培训档案记录<br>
+                <input type="radio" name="q26" value="D"> D. 未覆盖全部员工或无培训计划<br>
+            </div>
+        </div>
+
+        <div class="question">
+            <label for="q27">贵公司是否配备了必要的职业健康防护设施（如通风系统、防护服等）？</label>
+            <div class="answers">
+                <input type="radio" name="q27" value="A"> A. 全覆盖<br>
+                <input type="radio" name="q27" value="B"> B. 主要岗位覆盖<br>
+                <input type="radio" name="q27" value="C"> C. 少数岗位覆盖<br>
+                <input type="radio" name="q27" value="D"> D. 无覆盖<br>
+            </div>
+        </div>
+
+        <div class="question">
+            <label for="q28">贵公司是否建立了系统的职业安全管理体系（如ISO 45001认证、专职安全员、隐患排查等）？</label>
+            <div class="answers">
+                <input type="radio" name="q28" value="A"> A. 体系完备，运行良好，有审核与改进记录<br>
+                <input type="radio" name="q28" value="D"> D. 无体系或未实际执行，安全管理依赖临时应对<br>
+            </div>
+        </div>
+
+        <!-- 社会维度 - 社会责任与社区影响 -->
+        <div class="question">
+            <h3>4. 社会责任与社区影响</h3>
+            <label for="q29">在过去五年内，贵公司是否存在环保、用工、产品质量、安全等方面的违法违规记录？</label>
+            <div class="answers">
+                <input type="radio" name="q29" value="A"> A.无任何违规处罚记录<br>
+                <input type="radio" name="q29" value="B"> B.偶有轻微违规，已及时整改，无重大后果<br>
+                <input type="radio" name="q29" value="C"> C.多次受罚，合规水平波动大<br>
+                <input type="radio" name="q29" value="D"> D.存在严重违法，如重大环境事故、虚假产品等<br>
+            </div>
+        </div>
+
+        <div class="question">
+            <label for="q30">贵公司主要原材料供应商（如纸张、油墨等）是否具备可持续发展认证（如FSC、PEFC、大豆油墨等）？</label>
+            <div class="answers">
+                <input type="radio" name="q30" value="A"> A.≥80%供应商具绿色认证<br>
+                <input type="radio" name="q30" value="B"> B.50–79%具认证，建立筛选制度<br>
+                <input type="radio" name="q30" value="C"> C.20–49%，尚未建立完善机制<br>
+                <input type="radio" name="q30" value="D"> D.<20%，以传统供应商为主，忽视环境责任<br>
+            </div>
+        </div>
+
+        <div class="question">
+            <label for="q31">贵公司参与社区公益、教育文化、灾害援助等活动的频次与投入程度如何？</label>
+            <div class="answers">
+                <input type="radio" name="q31" value="A"> A.每年≥2次公益行动或投入≥利润1%<br>
+                <input type="radio" name="q31" value="B"> B.每年≥1次，投入适中<br>
+                <input type="radio" name="q31" value="C"> C.偶发参与，缺乏制度保障<br>
+                <input type="radio" name="q31" value="D"> D.无公益参与或记录<br>
+            </div>
+        </div>
+
+        <div class="question">
+            <label for="q32">员工是否认可企业的社会责任表现，是否愿意以企业为“社会公民”身份感到自豪？</label>
+            <div class="answers">
+                <input type="radio" name="q32" value="A"> A.≥80%员工表达高度认同与自豪感<br>
+                <input type="radio" name="q32" value="B"> B.60–79%认可，部分期待改进<br>
+                <input type="radio" name="q32" value="C"> C.40–59%，反馈分化<br>
+                <input type="radio" name="q32" value="D"> D.<40%，多数员工不认可企业责任表现<br>
+            </div>
+        </div>
+
+        <div class="question">
+            <h3>1. 清洁生产工艺与绿色技术应用</h3>
+            <label for="q5">贵公司在日常生产中使用具有环保认证或低污染属性的耗材（如环保油墨、水性胶、FSC认证纸张）的比例大致是多少？</label>
+            <div class="answers">
+                <input type="radio" name="q33" value="A"> A.≥80%——全面绿色材料替代，产品绿色属性强<br>
+                <input type="radio" name="q33" value="B"> B.60%–79%——大部分使用环保材料<br>
+                <input type="radio" name="q33" value="C"> C.30%–59%——部分采用环保材料<br>
+                <input type="radio" name="q33" value="D"> D.<30%——仍以传统材料为主<br>
+            </div>
+        </div>
+        <div class="question">
+            <label for="q34">贵公司在主要生产过程中是否采用节能环保设备？</label>
+            <div class="answers">
+                <input type="radio" name="q34" value="A"> A. 大部分采用<br>
+                <input type="radio" name="q34" value="B"> B. 部分采用<br>
+                <input type="radio" name="q34" value="C"> C. 偶尔采用<br>
+                <input type="radio" name="q34" value="D"> D. 不采用<br>
+            </div>
+        </div>
+
+        <div class="question">
+            <label for="q35">贵公司在过去五年内，是否有进行节能环保设备的升级或更换（如更换UV固化系统、加装VOCs收集系统等）？
+            </label>
+            <div class="answers">
+                <input type="radio" name="q35" value="A"> A.≥3次/5年——每1–2年有更新，节奏积极<br>
+                <input type="radio" name="q35" value="B"> B.2次/5年——5年内有明确更新计划<br>
+                <input type="radio" name="q35" value="C"> C.1次/5年——更新滞后，响应被动<br>
+                <input type="radio" name="q35" value="D"> D.无绿色设备更新<br>
+            </div>
+        </div>
+
+        <div class="question">
+            <label for="q36">贵公司是否获得绿色印刷认证、清洁生产审核验收或被列入绿色工厂目录？</label>
+            <div class="answers">
+                <input type="radio" name="q36" value="A"> A.获得国家级绿色印刷或绿色工厂认证<br>
+                <input type="radio" name="q36" value="B"> B.通过省市级清洁生产审核验收<br>
+                <input type="radio" name="q36" value="C"> C.正在申请/准备阶段<br>
+                <input type="radio" name="q36" value="D"> D.无相关认证或未计划申报<br>
+            </div>
+        </div>
+
+        <!-- 环境维度 - 资源利用效率与绿色运营绩效 -->
+        <div class="question">
+            <h3>2. 资源利用效率与绿色运营绩效</h3>
+            <label for="q37">在企业的印刷任务中，纸张有效使用面积占纸张总投入面积的比例大致是多少？</label>
+            <div class="answers">
+                <input type="radio" name="q37" value="A"> A.≥92%——纸张利用接近行业先进水平<br>
+                <input type="radio" name="q37" value="B"> B.88%–91.9%——控制良好，排产精细<br>
+                <input type="radio" name="q37" value="C"> C.82%–87.9%——有一定损耗<br>
+                <input type="radio" name="q37" value="D"> D.<82%——损耗偏高，资源浪费严重<br>
+            </div>
+        </div>
+
+        <div class="question">
+            <label for="q38">贵公司在生产过程中，每万元产值所消耗的综合能耗大致是多少？</label>
+            <div class="answers">
+                <input type="radio" name="q38" value="A"> A. 能耗强度≤0.05吨标准煤/万元<br>
+                <input type="radio" name="q38" value="B"> B. 能耗强度≤0.08吨标准煤/万元<br>
+                <input type="radio" name="q38" value="C"> C. 能耗强度≤0.15吨标准煤/万元<br>
+                <input type="radio" name="q38" value="D"> D. 能耗强度>0.15吨标准煤/万元。<br>
+            </div>
+        </div>
+
+        <div class="question">
+            <label for="q39">贵公司每创造1万元产值所消耗的油墨总量大致是多少（单位：公斤）？</label>
+            <div class="answers">
+                <input type="radio" name="q39" value="A"> A. ≤3.00<br>
+                <input type="radio" name="q39" value="B"> B. 3.01–5.00<br>
+                <input type="radio" name="q39" value="C"> C. 5.01–10.00<br>
+                <input type="radio" name="q39" value="D"> D. >10.00<br>
+            </div>
+        </div>
+
+        <div class="question">
+            <label for="q40">贵公司每生产单位产值（或单位印张）所消耗的水资源强度大致是多少？（单位：吨/万元产值 或 吨/万印张）</label>
+            <div class="answers">
+                <input type="radio" name="q40" value="A"> A. ≤0.5吨/万元产值——达到《印刷行业清洁生产评价指标体系》绿色工厂推荐标准<br>
+                <input type="radio" name="q40" value="B"> B. 0.51–1.00吨/万元产值——控制水平良好，满足一般排污许可要求<br>
+                <input type="radio" name="q40" value="C"> C. 1.01–2.00吨/万元产值——水耗偏高，需通过节水工艺与设备进行改善<br>
+                <input type="radio" name="q40" value="D"> D. >2.00吨/万元产值——属于高耗水企业，面临节水监管和政策风险<br>
+            </div>
+        </div>
+
+        <!-- 环境维度 - 污染控制与废弃物管理 -->
+        <div class="question">
+            <h3>3. 污染控制与废弃物管理</h3>
+            <label for="q41">贵公司每万元产值所产生的VOCs（挥发性有机物）排放量大致是多少？（单位：kg/万元）</label>
+            <div class="answers">
+                <input type="radio" name="q41" value="A"> A.≤0.4 kg/万元——符合清洁生产一级基准 <br>
+                <input type="radio" name="q41" value="B"> B. 0.41–0.6 kg/万元<br>
+                <input type="radio" name="q41" value="C"> C. 0.61–1.0 kg/万元<br>
+                <input type="radio" name="q41" value="D"> D. >1.0 kg/万元——高于行业允许限值，存在较大违规风险<br>
+            </div>
+        </div>
+
+        <div class="question">
+            <label for="q42">贵公司是否对危险废物（如废油墨桶、含重金属印版、废润版液等）实现分类登记、规范处置？</label>
+            <div class="answers">
+                <input type="radio" name="q42" value="A"> A. 已建立完整危废台账，委托资质单位转运，无违规记录<br>
+                <input type="radio" name="q42" value="B"> B. 制度健全但执行偶有缺口，如偶发存放混乱<br>
+                <input type="radio" name="q42" value="C"> C. 部分危废无记录或临时性委托，无闭环跟踪机制）<br>
+                <input type="radio" name="q42" value="D"> D. 无危废分类、无处理记录，存在擅自倾倒、混入一般垃圾行为<br>
+            </div>
+        </div>
+
+        <div class="question">
+            <label for="q43">贵公司是否确保废水中污染物浓度持续达标，并设置了废水预处理系统？</label>
+            <div class="answers">
+                <input type="radio" name="q43" value="A"> A. 连续三年无超标排放，设有在线监测或第三方年度检测合格<br>
+                <input type="radio" name="q43" value="B"> B. 有废水处理系统，一年内无重大超标记录<br>
+                <input type="radio" name="q43" value="C"> C. 无实时监测，仅事后抽检合格或偶有超标<br>
+                <input type="radio" name="q43" value="D"> D. 否无处理设施或长期超标，环境处罚记录存在<br>
+            </div>
+        </div>
+
+        <div class="question">
+            <label for="q44">贵公司在近五年内是否发生过环境污染事故或因排放问题受到投诉与处罚？</label>
+            <div class="answers">
+                <input type="radio" name="q44" value="A"> A.无任何环境事故或监管处罚<br>
+                <input type="radio" name="q44" value="B"> B.有轻微违规，如偶发排放超标，但已及时整改，无重大影响<br>
+                <input type="radio" name="q44" value="C"> C.发生过一次较严重事件，如被投诉或媒体曝光，已处理但形象受损<br>
+                <input type="radio" name="q44" value="D"> D.多次事故或存在重大污染行为，影响企业正常经营<br>
+            </div>
+        </div>
+
+        <!-- 环境维度 - 长期生态影响与碳排放管理 -->
+        <div class="question">
+            <h3>4. 长期生态影响与碳排放管理</h3>
+            <label for="q45">贵公司每万元产值的碳排放量是多少？</label>
+            <div class="answers">
+                <input type="radio" name="q45" value="A"> A. ≤0.20吨 CO₂e/万元<br>
+                <input type="radio" name="q45" value="B"> B. 0.21-0.30吨 CO₂e/万元<br>
+                <input type="radio" name="q45" value="C"> C. 0.31-0.50吨 CO₂e/万元<br>
+                <input type="radio" name="q45" value="D"> D. >0.50吨 CO₂e/万元<br>
+            </div>
+        </div>
+
+        <div class="question">
+            <label for="q46">贵公司能源结构中，清洁能源（如绿色电力、天然气、热泵系统等）所占比例大致是多少？</label>
+            <div class="answers">
+                <input type="radio" name="q46" value="A"> A. ≥50%<br>
+                <input type="radio" name="q46" value="B"> B. 30%-49%<br>
+                <input type="radio" name="q46" value="C"> C. 10%-29%<br>
+                <input type="radio" name="q46" value="D"> D. <10%<br>
+            </div>
+        </div>
+
+        <div class="question">
+            <label for="q47">贵公司是否系统推进减排工程与碳盘查（如节能设备改造、碳足迹认证、碳资产登记等）？</label>
+            <div class="answers">
+                <input type="radio" name="q47" value="A"> A. 是实施多项减碳措施，建立碳数据平台或完成碳核查<br>
+                <input type="radio" name="q47" value="B"> B. 开展部分节能项目，有初步减碳计划<br>
+                <input type="radio" name="q47" value="C"> C. 仅有被动应对措施，如偶尔更换节能灯具<br>
+                <input type="radio" name="q47" value="D"> D. 无减排意识或措施，能源使用粗放无记录<br>
+            </div>
+        </div>
+
+        <div class="question">
+            <label for="q48">贵公司是否设定年度减排目标或公开环境目标（如碳中和路径、能耗下降计划），并定期披露进展？</label>
+            <div class="answers">
+                <input type="radio" name="q48" value="A"> A.设有年度及中长期目标，进展数据对外公开<br>
+                <input type="radio" name="q48" value="B"> B.设目标但未公开披露，内部有跟踪机制<br>
+                <input type="radio" name="q48" value="C"> C.未设目标，仅偶尔改善无长期路径<br>
+                <input type="radio" name="q48" value="D"> D.无任何环境目标，环境管理被动应对<br>
+            </div>
+        </div>
+
+        <div class="question">
+            <button type="button" onclick="submitSurvey()">提交问卷</button>
+        </div>
+
+        <div class="results" id="results">
+            <h3>问卷提交结果</h3>
+            <div class="result-text" id="totalAverage">总平均分：0</div>
+            <div class="result-text" id="economicAverage">经济维度分数：0</div>
+            <div class="result-text" id="socialAverage">社会维度分数：0</div>
+            <div class="result-text" id="environmentalAverage">环境维度分数：0</div>
+        </div>
+        <div class="results" id="radarChartContainer" style="display:none;">
+            <h3>可持续发展能力雷达图</h3>
+            <canvas id="radarChart" width="400" height="400"></canvas>
+        </div>
+    </form>
+
+    <script>
+        // 每个选项的得分映射
+        const scoreMap = { A: 100, B: 80, C: 60, D: 40 };
+        let radarChartInstance = null;
+        // 维度权重
+        const dimensionWeights = {
+            economic: 0.45, // 经济维度
+            social: 0.30,   // 社会维度
+            environmental: 0.25 // 环境维度
+        };
+        // 经济维度的核心能力项权重
+        const economicCapabilities = {
+            innovation: 0.12, // 技术可持续创新能力
+            financial: 0.10,  // 财务稳健与成本控制能力
+            market: 0.13,     // 市场适应与业务模式创新能力
+            quality: 0.10     // 质量管理与客户价值创造能力
+        };
+
+
+        // 社会维度的核心能力项权重
+        const socialCapabilities = {
+            stability: 0.08, // 员工稳定性与人才吸引能力
+            training: 0.07,  // 员工技能提升与培训能力
+            safety: 0.09,    // 员工健康与安全管理能力
+            responsibility: 0.06 // 社会责任履行能力
+
+        };
+        // 环境维度的核心能力项权重
+        const environmentalCapabilities = {
+            greenTech: 0.08,  // 清洁生产工艺与绿色技术应用
+            efficiency: 0.07, // 资源利用效率与绿色运营绩效
+            pollution: 0.06,  // 污染控制与废弃物管理
+            carbon: 0.04      // 长期生态影响与碳排放管理
+        };
+
+        function calculateScore() {
+            let totalScore = 0;
+            let economicScore = 0, socialScore = 0, environmentalScore = 0;
+
+            // 核心能力项得分
+            let innovationScore = 0, financialScore = 0, marketScore = 0, qualityScore = 0;
+            let stabilityScore = 0, trainingScore = 0, safetyScore = 0, responsibilityScore = 0;
+            let greenTechScore = 0, efficiencyScore = 0, pollutionScore = 0, carbonScore = 0;
+
+            const formData = new FormData(document.getElementById('surveyForm'));
+
+            formData.forEach((value, key) => {
+                const questionNumber = parseInt(key.replace('q', ''));
+                const score = scoreMap[value] || 0;
+
+                // 根据问题编号分配到核心能力项
+                if (questionNumber >= 1 && questionNumber <= 4) {
+                    innovationScore += score; // 技术创新能力
+                } else if (questionNumber >= 5 && questionNumber <= 8) {
+                    financialScore += score; // 财务稳健能力
+                } else if (questionNumber >= 9 && questionNumber <= 12) {
+                    marketScore += score; // 市场适应能力
+                } else if (questionNumber >= 13 && questionNumber <= 16) {
+                    qualityScore += score; // 质量管理能力
+                }
+                // 社会维度问题分配
+                else if (questionNumber >= 17 && questionNumber <= 20) {
+                    stabilityScore += score; // 员工稳定性与人才吸引能力
+                } else if (questionNumber >= 21 && questionNumber <= 24) {
+                    trainingScore += score; // 员工技能提升与培训能力
+                } else if (questionNumber >= 25 && questionNumber <= 28) {
+                    safetyScore += score; // 员工健康与安全管理能力
+                } else if (questionNumber >= 29 && questionNumber <= 32) {
+                    responsibilityScore += score; // 社会责任履行能力
+                }
+                // 环境维度问题分配
+                else if (questionNumber >= 33 && questionNumber <= 36) {
+                    greenTechScore += score; // 绿色技术应用
+                } else if (questionNumber >= 37 && questionNumber <= 40) {
+                    efficiencyScore += score; // 资源利用效率
+                } else if (questionNumber >= 41 && questionNumber <= 44) {
+                    pollutionScore += score; // 污染控制
+                } else if (questionNumber >= 45 && questionNumber <= 48) {
+                    carbonScore += score; // 碳排放管理
+                }
+
+                totalScore += score; // 累加所有问题的得分
+            });
+
+            // 计算能力项得分（每个能力项的得分 = 问题平均分 × 该能力项权重）
+            const weightedInnovationScore = (innovationScore / 4) * economicCapabilities.innovation; // 技术可持续创新
+            const weightedFinancialScore = (financialScore / 4) * economicCapabilities.financial; // 财务稳健性
+            const weightedMarketScore = (marketScore / 4) * economicCapabilities.market; // 市场适应性
+            const weightedQualityScore = (qualityScore / 4) * economicCapabilities.quality; // 质量管理
+
+            const weightedStabilityScore = (stabilityScore / 4) * socialCapabilities.stability; // 员工稳定性
+            const weightedTrainingScore = (trainingScore / 4) * socialCapabilities.training; // 员工技能提升
+            const weightedSafetyScore = (safetyScore / 4) * socialCapabilities.safety; // 员工健康与安全
+            const weightedResponsibilityScore = (responsibilityScore / 4) * socialCapabilities.responsibility; // 社会责任
+
+            const weightedGreenTechScore = (greenTechScore / 4) * environmentalCapabilities.greenTech; // 绿色技术
+            const weightedEfficiencyScore = (efficiencyScore / 4) * environmentalCapabilities.efficiency; // 资源利用效率
+            const weightedPollutionScore = (pollutionScore / 4) * environmentalCapabilities.pollution; // 污染控制
+            const weightedCarbonScore = (carbonScore / 4) * environmentalCapabilities.carbon; // 碳排放管理
+
+            // 计算维度得分（将各能力项得分相加，不需要再乘以维度权重）
+            economicScore = weightedInnovationScore + weightedFinancialScore + weightedMarketScore + weightedQualityScore;
+            socialScore = weightedStabilityScore + weightedTrainingScore + weightedSafetyScore + weightedResponsibilityScore;
+            environmentalScore = weightedGreenTechScore + weightedEfficiencyScore + weightedPollutionScore + weightedCarbonScore;
+
+            // 计算总得分（各维度得分加总）
+            const averages = {
+                total: totalScore / 48, // 总题数
+                economic: economicScore,
+                social: socialScore,
+                environmental: environmentalScore
+            };
+
+            return {
+                total: (averages.economic + averages.social + averages.environmental),
+                economic: averages.economic,
+                social: averages.social,
+                environmental: averages.environmental
+            };
+        }
+
+
+        function submitSurvey() {
+            const form = document.getElementById('surveyForm');
+            const totalQuestions = 48;
+            let answeredCount = 0;
+
+            // 统计已选择的题目数量
+            for (let i = 1; i <= totalQuestions; i++) {
+                if (form.querySelector(`input[name="q${i}"]:checked`)) {
+                    answeredCount++;
+                }
+            }
+
+            // 如果未完成全部题目，弹出提示并中止提交
+            if (answeredCount < totalQuestions) {
+                alert(`您还有 ${totalQuestions - answeredCount} 道题未作答，请完成全部题目后提交。`);
+                return;
+            }
+
+            // 以下为原始评分逻辑
+            const { total, economic, social, environmental } = calculateScore();
+
+            // 显示得分
+            document.getElementById('totalAverage').textContent = `总平均分：${total.toFixed(0)}`;
+            document.getElementById('economicAverage').textContent = `经济维度分数：${economic.toFixed(0)}`;
+            document.getElementById('socialAverage').textContent = `社会维度分数：${social.toFixed(0)}`;
+            document.getElementById('environmentalAverage').textContent = `环境维度分数：${environmental.toFixed(0)}`;
+
+            // 显示结果区块
+            document.getElementById('results').style.display = 'block';
+            document.getElementById('radarChartContainer').style.display = 'block';
+
+            // 数据归一化为百分比（满分经济45，社会30，环境25）
+            const economicPercent = economic / 45 * 100;
+            const socialPercent = social / 30 * 100;
+            const environmentalPercent = environmental / 25 * 100;
+
+            drawRadarChart(economicPercent, socialPercent, environmentalPercent);
+        }
+
+        function drawRadarChart(economic, social, environmental) {
+            const ctx = document.getElementById('radarChart').getContext('2d');
+            if (radarChartInstance) radarChartInstance.destroy();
+            radarChartInstance = new Chart(ctx, {
+                type: 'radar',
+                data: {
+                    labels: ['经济维度', '社会维度', '环境维度'],
+                    datasets: [{
+                        label: '评估得分',
+                        data: [economic, social, environmental],
+                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        pointBackgroundColor: 'rgba(75, 192, 192, 1)'
+                    }]
+                },
+                options: {
+                    scales: {
+                        r: {
+                            suggestedMin: 0,
+                            suggestedMax: 100
+                        }
+                    }
+                }
+            });
+        }
+
+    </script>
+</body>
+
+</html>
